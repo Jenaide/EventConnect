@@ -1,0 +1,60 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.hero-section {
+  height: 100%;
+  position: relative;
+}
+
+.left {
+  height: 100%;
+  width: 50%;
+  padding-left: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+  justify-content: center;
+}
+
+.hero-title {
+  font-size: 60px;
+  margin: 0 0 40px 0;
+}
+
+.hero-action {
+  /*reset button*/
+  border: none;
+  background: transparent;
+  outline: 0 !important;
+  /*reset button*/
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  background: #3a7bd5;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 100%;
+  background: #3a7bd5;
+  background: -webkit-linear-gradient(to right, #3a6073, #3a7bd5);
+  background: linear-gradient(to right, #3a6073, #3a7bd5);
+ -webkit-clip-path: polygon(61% 0, 100% 0, 100% 100%, 0 100%, 29% 21%);
+  clip-path: polygon(61% 0, 100% 0, 100% 100%, 0 100%, 29% 21%);
+}
+

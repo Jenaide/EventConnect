@@ -1,13 +1,16 @@
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
+from flask_login import UserMixin
 db = SQLAlchemy()
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     __tablename__ = 'User'
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(), nullable=False)
-    password = db.Column(db.String(), nullable=False)
-    email = db.Column(db.String(), nullable=False)
+    username = db.Column(db.String(50), nullable=False)
+    email = db.Column(db.String(50), nullable=False)
+    password = db.Column(db.String(50), nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
@@ -19,7 +22,7 @@ class Event(db.Model):
     name = db.Column(db.String(255), nullable=False)
     discription = db.Column(db.String(255), nullable=False)
     location = db.Column(db.String(255), nullable=False)
-    organizer = db.Column(db.Integer(), db.ForeignKey('User.id'), nullable=False)
+    organiser = db.Column(db.Integer(), db.ForeignKey('User.id'), nullable=False)
     ticket_price = db.Column(db.Integer(), nullable=False)
     capacity = db.Column(db.Integer(), nullable=False)
     date = db.Column(db.DateTime, nullable=False)

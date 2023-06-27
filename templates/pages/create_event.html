@@ -1,0 +1,76 @@
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Event</title>
+</head>
+<body>
+    <h1>Create Event</h1>
+    <form method="POST" action="/create_event">
+        {{ form.csrf_token }}
+        {{ form.hidden_tag() }}
+
+        <div>
+            {{ form.name.label }}<br>
+            {{ form.name(size=40) }}
+            {% for error in form.name.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div>
+            {{ form.description.label }}<br>
+            {{ form.description(cols=40, rows=5) }}
+            {% for error in form.description.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div>
+            {{ form.location.label }}<br>
+            {{ form.location(size=40) }}
+            {% for error in form.location.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div>
+            {{ form.organiser.label }}<br>
+            {{ form.organiser(size=40) }}
+            {% for error in form.organiser.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div>
+            {{ form.ticket_price.label }}<br>
+            {{ form.ticket_price(size=40) }}
+            {% for error in form.ticket_price.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div>
+            {{ form.capacity.label }}<br>
+            {{ form.capacity(size=40) }}
+            {% for error in form.capacity.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div>
+            {{ form.date.label }}<br>
+            {{ form.date(size=40) }}
+            {% for error in form.date.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div>
+            <input type="submit" value="Create Event">
+        </div>
+    </form>
+</body>
+</html>
+{% endblock %}
